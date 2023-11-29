@@ -35,11 +35,11 @@ Aplikasi POS atau point of sales adalah aplikasi yang digunakan untuk mengelola 
 ## Instalasi
 #### Via Git
 ```bash
-git clone https://github.com/sandinur157/tuturial-membuat-aplikasi-point-of-sales.git
+git clone https://github.com/yudihendrawan/laravel-point-of-sale.git
 ```
 
 ### Download ZIP
-[Link](https://github.com/sandinur157/tuturial-membuat-aplikasi-point-of-sales/archive/refs/heads/main.zip)
+[Link](https://github.com/yudihendrawan/laravel-point-of-sale/archive/refs/heads/master.zip)
 
 ### Setup Aplikasi
 Jalankan perintah 
@@ -88,10 +88,6 @@ Menjalankan aplikasi
 php artisan serve
 ```
 
-## Link Tutorial
-
-- [Youtube](https://www.youtube.com/playlist?list=PLaN75JfoGz0Okf9f_7GbGM5IFaLXWx-_C)
-- [W2Learn](https://www.w2learn.com)
 
 ## License
 
