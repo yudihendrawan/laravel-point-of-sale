@@ -8,6 +8,7 @@ use App\Models\Penjualan;
 use Illuminate\Http\Request;
 use PDF;
 
+
 class LaporanController extends Controller
 {
     public function index(Request $request)
@@ -67,18 +68,25 @@ class LaporanController extends Controller
     public function data($awal, $akhir)
     {
         $data = $this->getData($awal, $akhir);
-
-        return datatables()
-            ->of($data)
-            ->make(true);
+        // return datatables()
+        // ->of($data)
+        // ->make(true);
+        // dd(datatables());
+        return datatables($data)->toJson();
     }
 
     public function exportPDF($awal, $akhir)
     {
+        try {
         $data = $this->getData($awal, $akhir);
-        $pdf  = PDF::loadView('laporan.pdf', compact('awal', 'akhir', 'data'));
-        $pdf->setPaper('a4', 'potrait');
-        
-        return $pdf->stream('Laporan-pendapatan-'. date('Y-m-d-his') .'.pdf');
+            $pdf = PDF::loadView('laporan.pdf', compact('awal', 'akhir', 'data'));
+            $pdf->setPaper('a4', 'potrait');
+
+            // dd($pdf);
+            return $pdf->stream('Laporan-pendapatan-' . date('Y-m-d-his') . '.pdf');
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
     }
+    }
+
 }

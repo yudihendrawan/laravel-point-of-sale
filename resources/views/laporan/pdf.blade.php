@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +7,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Laporan Pendapatan</title>
-
-    <link rel="stylesheet" href="{{ asset('/AdminLTE-2/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .table th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
     <h3 class="text-center">Laporan Pendapatan</h3>
@@ -16,7 +37,7 @@
         Tanggal {{ tanggal_indonesia($akhir, false) }}
     </h4>
 
-    <table class="table table-striped">
+    <table class="table">
         <thead>
             <tr>
                 <th width="5%">No</th>
@@ -27,14 +48,18 @@
                 <th>Pendapatan</th>
             </tr>
         </thead>
-        <tbody>
-            @foreach ($data as $row)
+             <tbody>
+                @foreach ($data as $index => $row)
                 <tr>
-                    @foreach ($row as $col)
-                        <td>{{ $col }}</td>
-                    @endforeach
+                    <td>{{ $index + 1 }}</td>
+                    <td>{{ $row['tanggal'] }}</td>
+                    <td>{{ $row['penjualan'] }}</td>
+                    <td>{{$row['pembelian'] }}</td>
+                    <td>{{$row['pengeluaran'] }}</td>
+                    <td>{{$row['pendapatan'] }}</td>
                 </tr>
             @endforeach
+        </tbody>
         </tbody>
     </table>
 </body>
